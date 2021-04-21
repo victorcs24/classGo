@@ -26,7 +26,7 @@ func main() {
 
 func makeslice() {
 	elemento := make([]int, 0, 0)
-	for i := 0; i < 130; i++ {
+	for i := 0; i < 129; i++ {
 		elemento = append(elemento, i)
 	}
 	fmt.Printf("slice tamaño %d capacidad %d", len(elemento), cap(elemento))

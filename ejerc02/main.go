@@ -9,7 +9,50 @@ import "fmt"
 //float32 75334395
 var numero1, numero2 int
 
+var calculo func(int, int) int = func(num1 int, num2 int) int {
+	return num1 + num2
+}
+
 func main() {
+	fmt.Println("\n variable funcion")
+	fmt.Println(calculo(2, 4))
+
+	calculo = func(num1 int, num2 int) int {
+		return num1 - num2
+	}
+
+	fmt.Println("\n variable funcion redefinir resta ")
+	fmt.Println(calculo(10, 3))
+	fmt.Println("\n ")
+	operaciones()
+	fmt.Println("\n funcion closures ")
+	tablaDel := 2
+	miTabla := Tabla(tablaDel)
+
+	for i := 1; i <= 10; i++ {
+		fmt.Println(miTabla())
+	}
+}
+func operaciones() {
+	resultado := func() int {
+		var a int = 5
+		var b int = 6
+		return a * b
+	}
+	fmt.Printf("\n resultado operaciones %d", resultado())
+}
+
+func Tabla(valor int) func() int {
+	numT := valor
+	secuencia := 0
+
+	return func() int {
+		secuencia += 1
+		return numT * secuencia
+	}
+}
+
+func main_funciones() {
 	fmt.Printf("numero %d", doblenum(4))
 
 	numx, result := dobleparam(3)
@@ -45,9 +88,6 @@ func calcular(numero ...int) int {
 		fmt.Printf("\n item: %d total: %d", item, total)
 	}
 	return total
-}
-
-func calcular2(numero ...int) int {
 }
 
 func main_X2() {

@@ -1,11 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 var tabla [10]int
 
 //var matriz [5][7]int
 func main() {
+	fmt.Println("The time is", time.Now())
 	fmt.Println("Arreglos ---- vectores")
 
 	tabla[0] = 1
